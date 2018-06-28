@@ -1,0 +1,15 @@
+{
+  "root": true,
+  "extends": "airbnb-base",
+  "env": {
+    "browser": true
+  },
+  "plugins": [
+    "html"
+  ],
+  "rules": {
+    "import/no-extraneous-dependencies": "off",
+    "no-param-reassign": "off",
+    "no-restricted-properties": "off"
+  }
+}
