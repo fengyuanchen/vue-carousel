@@ -1,6 +1,6 @@
 # vue-carousel
 
-[![Build Status](https://travis-ci.org/fengyuanchen/vue-carousel.svg)](https://travis-ci.org/fengyuanchen/vue-carousel) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-carousel.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-carousel) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-carousel.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-carousel)
+[![Build Status](https://img.shields.io/travis-ci/fengyuanchen/vue-carousel.svg)](https://travis-ci.org/fengyuanchen/vue-carousel) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-carousel.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-carousel) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-carousel.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-carousel)
 
 > Carousel component for [Vue.js](https://vuejs.org/).
 
@@ -22,7 +22,7 @@ dist/
 ### Installation
 
 ```shell
-npm install @chenfengyuan/vue-carousel vue
+npm install @chenfengyuan/vue-carousel vue vue-template-compiler
 ```
 
 In browser:
