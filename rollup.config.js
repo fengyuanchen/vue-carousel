@@ -16,7 +16,7 @@ const banner = createBanner({
 });
 
 export default {
-  input: 'src/index.vue',
+  input: 'src/index.js',
   output: [
     {
       banner,
@@ -51,7 +51,7 @@ export default {
       },
     }),
     babel({
-      plugins: ['external-helpers'],
+      extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue'],
     }),
   ],
 };
