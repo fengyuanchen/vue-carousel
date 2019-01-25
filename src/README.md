@@ -147,16 +147,16 @@
 ```html
 <template>
   <div class="row">
-    <div class="col">
+    <div class="col-sm">
       <carousel :data="data"></carousel>
     </div>
-    <div class="col">
+    <div class="col-sm mt-3 mt-sm-0">
       <carousel :data="data" direction="right"></carousel>
     </div>
-    <div class="col">
+    <div class="col-sm mt-3 mt-sm-0">
       <carousel :data="data" direction="up"></carousel>
     </div>
-    <div class="col">
+    <div class="col-sm mt-3 mt-sm-0">
       <carousel :data="data" direction="down"></carousel>
     </div>
   </div>
@@ -189,12 +189,6 @@
     },
   };
 </script>
-
-<style scoped>
-  .carousel + .carousel {
-    margin-top: .5rem;
-  }
-</style>
 ```
 
 ## Controls
@@ -294,10 +288,10 @@
 ```html
 <template>
   <div class="row">
-    <div class="col">
+    <div class="col-sm">
       <carousel :data="data"></carousel>
     </div>
-    <div class="col">
+    <div class="col-sm mt-3 mt-sm-0">
       <carousel :data="data" indicator-trigger="hover"></carousel>
     </div>
   </div>
@@ -316,12 +310,6 @@
     },
   };
 </script>
-
-<style scoped>
-  .carousel + .carousel {
-    margin-top: .5rem;
-  }
-</style>
 ```
 
 ### Indicator types
@@ -329,10 +317,10 @@
 ```html
 <template>
   <div class="row">
-    <div class="col">
+    <div class="col-sm">
       <carousel :data="data"></carousel>
     </div>
-    <div class="col">
+    <div class="col-sm mt-3 mt-sm-0">
       <carousel :data="data" indicator-type="disc"></carousel>
     </div>
   </div>
@@ -365,6 +353,8 @@
 | indicator-type | `String` | `'line'` | line, disc | The style type of the indicator. |
 | indicators | `Boolean` \| `String` | `true` | false, true, hover | Whether to show or how to show the indicators. |
 | interval | `Number` | `5000` | - | The amount of time to delay between automatically cycling an item. |
+| pauseOnEnter | `Boolean` | `true` | - | Indicates if pause the slides automatically when pointer entering. |
+| slideOnSwipe | `Boolean` | `true` | - | Indicates if slide the slides automatically after swiped. |
 | tag | `String` | `'div'` | - | The element tag of the carousel container. |
 
 The array structure of `data`:

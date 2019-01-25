@@ -1,6 +1,18 @@
 <script>
 import createVueComponent from '@chenfengyuan/create-vue-component';
 
+const IS_BROWSER = typeof window !== 'undefined';
+const IS_TOUCH_DEVICE = IS_BROWSER ? 'ontouchstart' in window.document.documentElement : false;
+const HAS_POINTER_EVENT = IS_BROWSER ? 'PointerEvent' in window : false;
+const EVENT_TOUCH_START = IS_TOUCH_DEVICE ? 'touchstart' : 'mousedown';
+const EVENT_TOUCH_MOVE = IS_TOUCH_DEVICE ? 'touchmove' : 'mousemove';
+const EVENT_TOUCH_END = IS_TOUCH_DEVICE ? 'touchend' : 'mouseup';
+const EVENT_POINTER_DOWN = HAS_POINTER_EVENT ? 'pointerdown' : EVENT_TOUCH_START;
+const EVENT_POINTER_MOVE = HAS_POINTER_EVENT ? 'pointermove' : EVENT_TOUCH_MOVE;
+const EVENT_POINTER_UP = HAS_POINTER_EVENT ? 'pointerup' : EVENT_TOUCH_END;
+const EVENT_POINTER_ENTER = HAS_POINTER_EVENT ? 'pointerenter' : 'mouseenter';
+const EVENT_POINTER_LEAVE = HAS_POINTER_EVENT ? 'pointerleave' : 'mouseleave';
+
 export default {
   name: 'Carousel',
 
@@ -43,6 +55,16 @@ export default {
     interval: {
       type: Number,
       default: 5000,
+    },
+
+    pauseOnEnter: {
+      type: Boolean,
+      default: true,
+    },
+
+    slideOnSwipe: {
+      type: Boolean,
+      default: true,
     },
 
     tag: {
@@ -297,7 +319,7 @@ export default {
     slideStart(event) {
       const touch = event.touches ? event.touches[0] : null;
 
-      if (event.touches) {
+      if (this.pauseOnEnter) {
         this.stop();
       }
 
@@ -314,7 +336,7 @@ export default {
       this.endY = touch ? touch.pageY : event.pageY;
     },
 
-    slideEnd(event) {
+    slideEnd() {
       const moveX = this.endX - this.startX;
       const moveY = this.endY - this.startY;
       const thresholdX = this.$el.offsetWidth / 5;
@@ -324,7 +346,7 @@ export default {
       const bottom = moveY > thresholdY;
       const left = moveX < -thresholdX;
       const done = () => {
-        if (event.touches) {
+        if (this.pauseOnEnter) {
           this.start();
         }
       };
@@ -380,22 +402,15 @@ export default {
 
         on: {
           ...this.$listeners,
-          ...(window.PointerEvent ? {
-            pointerenter: this.pause,
-            pointerleave: this.cycle,
-            pointerdown: this.slideStart,
-            pointermove: this.slideMove,
-            pointerup: this.slideEnd,
-          } : {
-            mouseenter: this.pause,
-            mouseleave: this.cycle,
-            touchstart: this.slideStart,
-            touchmove: this.slideMove,
-            touchend: this.slideEnd,
-            mousedown: this.slideStart,
-            mousemove: this.slideMove,
-            mouseup: this.slideEnd,
-          }),
+          ...(this.pauseOnEnter ? {
+            [EVENT_POINTER_ENTER]: this.pause,
+            [EVENT_POINTER_LEAVE]: this.cycle,
+          } : {}),
+          ...(this.slideOnSwipe ? {
+            [EVENT_POINTER_DOWN]: this.slideStart,
+            [EVENT_POINTER_MOVE]: this.slideMove,
+            [EVENT_POINTER_UP]: this.slideEnd,
+          } : {}),
         },
       },
 
