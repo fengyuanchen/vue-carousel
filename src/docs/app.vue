@@ -2,15 +2,56 @@
   <div class="app">
     <header class="navbar navbar-light navbar-expand-md">
       <nav class="container">
-        <a class="navbar-brand" href="./">{{ name }}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <a
+          class="navbar-brand"
+          href="./"
+        >
+          {{ name }}
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar-collapse"
+          aria-controls="navbar-collapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon" />
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbar-collapse" role="navigation">
+        <div
+          id="navbar-collapse"
+          class="collapse navbar-collapse justify-content-end"
+          role="navigation"
+        >
           <nav class="nav navbar-nav">
-            <a class="nav-link" :href="`//github.com/${repository}`" title="View the GitHub project">GitHub</a>
-            <a class="nav-link" :href="`//github.com/${repository}/blob/master/LICENSE`">License</a>
-            <a class="nav-link" :href="author.url" title="About the author">About</a>
+            <a
+              class="nav-link"
+              :href="`//github.com/${repository}`"
+              title="View the GitHub project"
+            >
+              GitHub
+            </a>
+            <a
+              class="nav-link"
+              :href="`//github.com/${repository}/blob/master/LICENSE`"
+            >
+              License
+            </a>
+            <a
+              class="nav-link"
+              href="//fengyuanchen.github.io"
+              title="Explore more projects"
+            >
+              Explore
+            </a>
+            <a
+              class="nav-link"
+              :href="author.url"
+              title="About the author"
+            >
+              About
+            </a>
           </nav>
         </div>
       </nav>
@@ -20,28 +61,52 @@
         <div class="container">
           <div class="row">
             <div class="col-md">
-              <h1>{{ name }} <small class="h6">v{{ version }}</small></h1>
-              <p class="lead">{{ description }}</p>
+              <h1>
+                {{ name }} <small class="h6">
+                  v{{ version }}
+                </small>
+              </h1>
+              <p class="lead">
+                {{ description }}
+              </p>
             </div>
             <div class="col-md">
-              <div class="carbonads" ref="carbonads"></div>
+              <div
+                ref="carbonads"
+                class="carbonads"
+              />
             </div>
           </div>
         </div>
       </div>
       <div class="container">
         <div class="markdown-body">
-          <readme></readme>
+          <readme />
         </div>
       </div>
     </main>
     <footer>
       <div class="container">
-        <p class="heart"></p>
+        <p class="heart" />
         <nav class="nav flex-wrap justify-content-center mb-3">
-          <a class="nav-link" :href="`//github.com/${repository}`">GitHub</a>
-          <a class="nav-link" :href="`//github.com/${repository}/blob/master/LICENSE`">License</a>
-          <a class="nav-link" :href="author.url">About</a>
+          <a
+            class="nav-link"
+            :href="`//github.com/${repository}`"
+          >
+            GitHub
+          </a>
+          <a
+            class="nav-link"
+            :href="`//github.com/${repository}/blob/master/LICENSE`"
+          >
+            License
+          </a>
+          <a
+            class="nav-link"
+            :href="author.url"
+          >
+            About
+          </a>
         </nav>
       </div>
     </footer>
@@ -49,29 +114,29 @@
 </template>
 
 <script>
-  import pkg from '../../package.json';
-  import Readme from '../README.md';
+import pkg from '../../package.json';
+import Readme from '../README.md';
 
-  pkg.name = pkg.name.replace(/^.+\//, '');
+pkg.name = pkg.name.replace(/^.+\//, '');
 
-  export default {
-    components: {
-      Readme,
-    },
+export default {
+  components: {
+    Readme,
+  },
 
-    data() {
-      return pkg;
-    },
+  data() {
+    return pkg;
+  },
 
-    mounted() {
-      const script = document.createElement('script');
+  mounted() {
+    const script = document.createElement('script');
 
-      script.async = true;
-      script.id = '_carbonads_js';
-      script.src = '//cdn.carbonads.com/carbon.js?serve=CKYI55Q7&placement=fengyuanchengithubio';
-      this.$refs.carbonads.appendChild(script);
-    },
-  };
+    script.async = true;
+    script.id = '_carbonads_js';
+    script.src = '//cdn.carbonads.com/carbon.js?serve=CKYI55Q7&placement=fengyuanchengithubio';
+    this.$refs.carbonads.appendChild(script);
+  },
+};
 </script>
 
 <style lang="scss">
@@ -86,9 +151,9 @@
   }
 
   .carbonads {
-    border-radius: .25rem;
     border: 1px solid #ccc;
-    font-size: .875rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
     overflow: hidden;
     padding: 1rem;
 
@@ -158,8 +223,8 @@
     &::after {
       background-color: #fff;
       content: '♥';
-      padding-left: .5rem;
-      padding-right: .5rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
       position: relative;
       z-index: 1;
     }
