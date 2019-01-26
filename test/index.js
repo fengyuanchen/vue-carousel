@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import VueCarousel from '../src/index.vue';
+import VueCarousel from '../src';
 
 Vue.component(VueCarousel.name, VueCarousel);
 

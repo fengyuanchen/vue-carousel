@@ -1,24 +1,19 @@
 const puppeteer = require('puppeteer');
-const webpackConfig = require('../webpack.config');
+const webpackConfig = require('./webpack.config');
 
 process.env.CHROME_BIN = puppeteer.executablePath();
+process.env.NODE_ENV = 'test';
 
 module.exports = (config) => {
   config.set({
     autoWatch: false,
-    browsers: ['ChromeHeadlessWithoutSandbox'],
-    customLaunchers: {
-      ChromeHeadlessWithoutSandbox: {
-        base: 'ChromeHeadless',
-        flags: ['--no-sandbox'],
-      },
-    },
+    browsers: ['ChromeHeadless'],
     files: [
-      './index.js',
+      'test/index.js',
     ],
     frameworks: ['mocha', 'chai'],
     preprocessors: {
-      './index.js': ['webpack'],
+      'test/index.js': ['webpack'],
     },
     reporters: ['mocha'],
     singleRun: true,
