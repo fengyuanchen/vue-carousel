@@ -27,14 +27,14 @@
           <nav class="nav navbar-nav">
             <a
               class="nav-link"
-              :href="`//github.com/${repository}`"
+              href="//github.com/fengyuanchen/vue-carousel"
               title="View the GitHub project"
             >
               GitHub
             </a>
             <a
               class="nav-link"
-              :href="`//github.com/${repository}/blob/master/LICENSE`"
+              href="//github.com/fengyuanchen/vue-carousel/blob/master/LICENSE"
             >
               License
             </a>
@@ -91,13 +91,13 @@
         <nav class="nav flex-wrap justify-content-center mb-3">
           <a
             class="nav-link"
-            :href="`//github.com/${repository}`"
+            href="//github.com/fengyuanchen/vue-carousel"
           >
             GitHub
           </a>
           <a
             class="nav-link"
-            :href="`//github.com/${repository}/blob/master/LICENSE`"
+            href="//github.com/fengyuanchen/vue-carousel/blob/master/LICENSE"
           >
             License
           </a>

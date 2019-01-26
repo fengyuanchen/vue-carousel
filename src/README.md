@@ -121,13 +121,13 @@
 <style scoped>
   .broadcast {
     border: 1px solid #eee;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     display: flex;
-    padding: .5rem .75rem;
+    padding: 0.5rem 0.75rem;
   }
 
   .broadcast > .feather {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 
   .broadcast > .carousel {
