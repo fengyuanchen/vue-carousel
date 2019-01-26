@@ -9,23 +9,37 @@ import pkg from './package.json';
 
 pkg.name = pkg.name.replace(/^.+\//, '');
 
+const name = changeCase.pascalCase(pkg.name);
+const data = {
+  year: '2018-present',
+};
 const banner = createBanner({
-  data: {
-    year: '2018-present',
-  },
+  data,
 });
+const globals = {
+  vue: 'Vue',
+};
 
 export default {
   input: 'src/index.js',
   output: [
     {
       banner,
-      name: changeCase.pascalCase(pkg.name),
+      globals,
+      name,
       file: `dist/${pkg.name}.js`,
       format: 'umd',
-      globals: {
-        vue: 'Vue',
-      },
+    },
+    {
+      globals,
+      name,
+      banner: createBanner({
+        data,
+        template: 'inline',
+      }),
+      file: `dist/${pkg.name}.min.js`,
+      format: 'umd',
+      compact: true,
     },
     {
       banner,

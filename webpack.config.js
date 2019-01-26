@@ -36,6 +36,8 @@ module.exports = {
             loader: 'markdown-to-vue-loader',
             options: {
               componentWrapper: '<demo></demo>',
+              tableClass: 'table',
+              tableWrapper: '<div class="table-responsive"></div>',
             },
           },
         ],
