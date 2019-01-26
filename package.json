@@ -92,6 +92,7 @@
     "stylelint-config-standard": "^18.2.0",
     "stylelint-order": "^2.0.0",
     "stylelint-scss": "^3.5.1",
+    "uglify-js": "^3.4.9",
     "vue": "^2.5.22",
     "vue-feather": "^1.0.0",
     "vue-loader": "^15.6.1",
