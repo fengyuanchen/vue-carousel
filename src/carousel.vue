@@ -238,7 +238,7 @@ export default {
       this.$nextTick(() => {
         // Force reflow to enable CSS3 transition
         // eslint-disable-next-line
-          this.$el.offsetWidth;
+        this.$el.offsetWidth;
 
         switch (this.direction) {
           case 'up':
@@ -347,7 +347,7 @@ export default {
       const left = moveX < -thresholdX;
       const done = () => {
         if (this.pauseOnEnter) {
-          this.start();
+          this.play();
         }
       };
       let prev = false;
