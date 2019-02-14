@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 (Feb 14, 2019)
+
+- Fix wrong method name (#5).
+
 ## 1.0.0 (Jan 26, 2019)
 
 - Add 2 new props: `pauseOnEnter` and `slideOnSwipe`.

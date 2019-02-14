@@ -1,11 +1,11 @@
 /*!
- * vue-carousel v1.0.0
+ * vue-carousel v1.0.1
  * https://fengyuanchen.github.io/vue-carousel
  *
  * Copyright 2018-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2019-01-26T06:12:51.476Z
+ * Date: 2019-02-14T12:40:19.252Z
  */
 
 (function (global, factory) {
@@ -496,6 +496,13 @@
 
         var moveX = this.endX - this.startX;
         var moveY = this.endY - this.startY;
+        this.endX = this.startX;
+        this.endY = this.startY; // Ignore click events
+
+        if (moveX === 0 && moveY === 0) {
+          return;
+        }
+
         var thresholdX = this.$el.offsetWidth / 5;
         var thresholdY = this.$el.offsetHeight / 5;
         var top = moveY < -thresholdY;
@@ -505,7 +512,7 @@
 
         var done = function done() {
           if (_this5.pauseOnEnter) {
-            _this5.start();
+            _this5.play();
           }
         };
 
@@ -541,9 +548,6 @@
         } else {
           done();
         }
-
-        this.endX = this.startX;
-        this.endY = this.startY;
       }
     },
     render: function render(createElement) {
@@ -601,7 +605,7 @@
 
             if (_this6.indicatorTrigger === 'hover') {
               listeners.touchstart = slide;
-              listeners[window.PointerEvent ? 'pointerenter' : 'mouseenter'] = slide;
+              listeners[EVENT_POINTER_ENTER] = slide;
             } else {
               listeners.click = slide;
             }
@@ -779,17 +783,15 @@
   var browser = createInjector;
 
   /* script */
-  var __vue_script__ = script; // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
-
-  script.__file = "carousel.vue";
+  var __vue_script__ = script;
   /* template */
 
   /* style */
 
   var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
     if (!inject) return;
-    inject("data-v-9e63095c_0", {
-      source: ".carousel[data-v-9e63095c]{position:relative;touch-action:none;user-select:none}.carousel--down>.carousel__indicators[data-v-9e63095c],.carousel--up>.carousel__indicators[data-v-9e63095c]{bottom:auto;flex-direction:column;left:auto;right:0;top:50%;transform:translate(0,-50%)}.carousel--down>.carousel__indicators>.carousel__indicator[data-v-9e63095c]::before,.carousel--up>.carousel__indicators>.carousel__indicator[data-v-9e63095c]::before{height:100%;width:.125rem}.carousel--down>.carousel__indicators--disc>.carousel__indicator[data-v-9e63095c],.carousel--up>.carousel__indicators--disc>.carousel__indicator[data-v-9e63095c]{height:.75rem;width:1.5rem}.carousel--down>.carousel__indicators--disc>.carousel__indicator[data-v-9e63095c]::before,.carousel--up>.carousel__indicators--disc>.carousel__indicator[data-v-9e63095c]::before{height:.5rem;width:.5rem}.carousel--right>.carousel__indicators[data-v-9e63095c]{flex-direction:row-reverse}.carousel--down>.carousel__indicators[data-v-9e63095c]{flex-direction:column-reverse}.carousel--controls:hover>.carousel__control[data-v-9e63095c]{opacity:.5;transform:translateX(0);z-index:1}.carousel--controls:hover>.carousel__control[data-v-9e63095c]:focus,.carousel--controls:hover>.carousel__control[data-v-9e63095c]:hover{opacity:1}.carousel--controls>.carousel__control[data-v-9e63095c]{opacity:0;z-index:-1}.carousel--controls>.carousel__control--prev[data-v-9e63095c]{transform:translateX(-50%)}.carousel--controls>.carousel__control--next[data-v-9e63095c]{transform:translateX(50%)}.carousel--indicators:hover>.carousel__indicators[data-v-9e63095c]{opacity:1;z-index:1}.carousel--indicators>.carousel__indicators[data-v-9e63095c]{opacity:0;transition:opacity .15s;z-index:-1}.carousel__list[data-v-9e63095c]{margin:0;overflow:hidden;padding:0;position:relative;width:100%}.carousel__item[data-v-9e63095c]{display:none;margin:0}.carousel__item--active[data-v-9e63095c],.carousel__item--bottom[data-v-9e63095c],.carousel__item--left[data-v-9e63095c],.carousel__item--right[data-v-9e63095c],.carousel__item--top[data-v-9e63095c]{display:block;transition:transform .6s ease-in-out;width:100%}.carousel__item--bottom[data-v-9e63095c],.carousel__item--left[data-v-9e63095c],.carousel__item--right[data-v-9e63095c],.carousel__item--top[data-v-9e63095c]{left:0;position:absolute;top:0}.carousel__item--top[data-v-9e63095c]{transform:translateY(-100%)}.carousel__item--top.carousel__item--to-bottom[data-v-9e63095c]{transform:translateY(0)}.carousel__item--right[data-v-9e63095c]{transform:translateX(100%)}.carousel__item--right.carousel__item--to-left[data-v-9e63095c]{transform:translateX(0)}.carousel__item--bottom[data-v-9e63095c]{transform:translateY(100%)}.carousel__item--bottom.carousel__item--to-top[data-v-9e63095c]{transform:translateY(0)}.carousel__item--left[data-v-9e63095c]{transform:translateX(-100%)}.carousel__item--left.carousel__item--to-right[data-v-9e63095c]{transform:translateX(0)}.carousel__item--active[data-v-9e63095c]{transform:translate(0,0);z-index:1}.carousel__item--active.carousel__item--to-top[data-v-9e63095c]{transform:translateY(-100%)}.carousel__item--active.carousel__item--to-right[data-v-9e63095c]{transform:translateX(100%)}.carousel__item--active.carousel__item--to-bottom[data-v-9e63095c]{transform:translateY(100%)}.carousel__item--active.carousel__item--to-left[data-v-9e63095c]{transform:translateX(-100%)}.carousel__indicators[data-v-9e63095c]{bottom:0;display:flex;justify-content:center;left:50%;list-style:none;margin:0;padding:0;position:absolute;transform:translateX(-50%);z-index:1}.carousel__indicators--disc>.carousel__indicator[data-v-9e63095c]{width:.75rem}.carousel__indicators--disc>.carousel__indicator[data-v-9e63095c]::before{border-radius:50%;height:.5rem;width:.5rem}.carousel__indicator[data-v-9e63095c]{cursor:pointer;height:1.5rem;margin:.125rem;opacity:.5;position:relative;transition:opacity .15s;width:1.5rem}.carousel__indicator[data-v-9e63095c]::before{background-color:#fff;content:\"\";display:block;height:.125rem;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%);width:100%}.carousel__indicator--active[data-v-9e63095c]{opacity:1}.carousel__control[data-v-9e63095c]{background-color:rgba(0,0,0,.5);border:0;border-radius:50%;color:#fff;cursor:pointer;height:2rem;margin-top:-1rem;opacity:.5;padding:.5rem;position:absolute;top:50%;transition:all .15s;width:2rem}.carousel__control[data-v-9e63095c]:focus,.carousel__control[data-v-9e63095c]:hover{opacity:1}.carousel__control[data-v-9e63095c]:focus{outline:0}.carousel__control[data-v-9e63095c]::before{border:.0625rem solid transparent;border-radius:.125rem;content:\"\";display:block;height:.5rem;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%) rotate(45deg);width:.5rem}.carousel__control--prev[data-v-9e63095c]{left:1rem}.carousel__control--prev[data-v-9e63095c]::before{border-bottom-color:#fff;border-left-color:#fff;margin-left:.125rem}.carousel__control--next[data-v-9e63095c]{right:1rem}.carousel__control--next[data-v-9e63095c]::before{border-right-color:#fff;border-top-color:#fff;margin-left:-.125rem}",
+    inject("data-v-58e9dff8_0", {
+      source: ".carousel[data-v-58e9dff8]{position:relative;touch-action:none;user-select:none}.carousel--down>.carousel__indicators[data-v-58e9dff8],.carousel--up>.carousel__indicators[data-v-58e9dff8]{bottom:auto;flex-direction:column;left:auto;right:0;top:50%;transform:translate(0,-50%)}.carousel--down>.carousel__indicators>.carousel__indicator[data-v-58e9dff8]::before,.carousel--up>.carousel__indicators>.carousel__indicator[data-v-58e9dff8]::before{height:100%;width:.125rem}.carousel--down>.carousel__indicators--disc>.carousel__indicator[data-v-58e9dff8],.carousel--up>.carousel__indicators--disc>.carousel__indicator[data-v-58e9dff8]{height:.75rem;width:1.5rem}.carousel--down>.carousel__indicators--disc>.carousel__indicator[data-v-58e9dff8]::before,.carousel--up>.carousel__indicators--disc>.carousel__indicator[data-v-58e9dff8]::before{height:.5rem;width:.5rem}.carousel--right>.carousel__indicators[data-v-58e9dff8]{flex-direction:row-reverse}.carousel--down>.carousel__indicators[data-v-58e9dff8]{flex-direction:column-reverse}.carousel--controls:hover>.carousel__control[data-v-58e9dff8]{opacity:.5;transform:translateX(0);z-index:1}.carousel--controls:hover>.carousel__control[data-v-58e9dff8]:focus,.carousel--controls:hover>.carousel__control[data-v-58e9dff8]:hover{opacity:1}.carousel--controls>.carousel__control[data-v-58e9dff8]{opacity:0;z-index:-1}.carousel--controls>.carousel__control--prev[data-v-58e9dff8]{transform:translateX(-50%)}.carousel--controls>.carousel__control--next[data-v-58e9dff8]{transform:translateX(50%)}.carousel--indicators:hover>.carousel__indicators[data-v-58e9dff8]{opacity:1;z-index:1}.carousel--indicators>.carousel__indicators[data-v-58e9dff8]{opacity:0;transition:opacity .15s;z-index:-1}.carousel__list[data-v-58e9dff8]{margin:0;overflow:hidden;padding:0;position:relative;width:100%}.carousel__item[data-v-58e9dff8]{display:none;margin:0}.carousel__item--active[data-v-58e9dff8],.carousel__item--bottom[data-v-58e9dff8],.carousel__item--left[data-v-58e9dff8],.carousel__item--right[data-v-58e9dff8],.carousel__item--top[data-v-58e9dff8]{display:block;transition:transform .6s ease-in-out;width:100%}.carousel__item--bottom[data-v-58e9dff8],.carousel__item--left[data-v-58e9dff8],.carousel__item--right[data-v-58e9dff8],.carousel__item--top[data-v-58e9dff8]{left:0;position:absolute;top:0}.carousel__item--top[data-v-58e9dff8]{transform:translateY(-100%)}.carousel__item--top.carousel__item--to-bottom[data-v-58e9dff8]{transform:translateY(0)}.carousel__item--right[data-v-58e9dff8]{transform:translateX(100%)}.carousel__item--right.carousel__item--to-left[data-v-58e9dff8]{transform:translateX(0)}.carousel__item--bottom[data-v-58e9dff8]{transform:translateY(100%)}.carousel__item--bottom.carousel__item--to-top[data-v-58e9dff8]{transform:translateY(0)}.carousel__item--left[data-v-58e9dff8]{transform:translateX(-100%)}.carousel__item--left.carousel__item--to-right[data-v-58e9dff8]{transform:translateX(0)}.carousel__item--active[data-v-58e9dff8]{transform:translate(0,0);z-index:1}.carousel__item--active.carousel__item--to-top[data-v-58e9dff8]{transform:translateY(-100%)}.carousel__item--active.carousel__item--to-right[data-v-58e9dff8]{transform:translateX(100%)}.carousel__item--active.carousel__item--to-bottom[data-v-58e9dff8]{transform:translateY(100%)}.carousel__item--active.carousel__item--to-left[data-v-58e9dff8]{transform:translateX(-100%)}.carousel__indicators[data-v-58e9dff8]{bottom:0;display:flex;justify-content:center;left:50%;list-style:none;margin:0;padding:0;position:absolute;transform:translateX(-50%);z-index:1}.carousel__indicators--disc>.carousel__indicator[data-v-58e9dff8]{width:.75rem}.carousel__indicators--disc>.carousel__indicator[data-v-58e9dff8]::before{border-radius:50%;height:.5rem;width:.5rem}.carousel__indicator[data-v-58e9dff8]{cursor:pointer;height:1.5rem;margin:.125rem;opacity:.5;position:relative;transition:opacity .15s;width:1.5rem}.carousel__indicator[data-v-58e9dff8]::before{background-color:#fff;content:\"\";display:block;height:.125rem;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%);width:100%}.carousel__indicator--active[data-v-58e9dff8]{opacity:1}.carousel__control[data-v-58e9dff8]{background-color:rgba(0,0,0,.5);border:0;border-radius:50%;color:#fff;cursor:pointer;height:2rem;margin-top:-1rem;opacity:.5;padding:.5rem;position:absolute;top:50%;transition:all .15s;width:2rem}.carousel__control[data-v-58e9dff8]:focus,.carousel__control[data-v-58e9dff8]:hover{opacity:1}.carousel__control[data-v-58e9dff8]:focus{outline:0}.carousel__control[data-v-58e9dff8]::before{border:.0625rem solid transparent;border-radius:.125rem;content:\"\";display:block;height:.5rem;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%) rotate(45deg);width:.5rem}.carousel__control--prev[data-v-58e9dff8]{left:1rem}.carousel__control--prev[data-v-58e9dff8]::before{border-bottom-color:#fff;border-left-color:#fff;margin-left:.125rem}.carousel__control--next[data-v-58e9dff8]{right:1rem}.carousel__control--next[data-v-58e9dff8]::before{border-right-color:#fff;border-top-color:#fff;margin-left:-.125rem}",
       map: undefined,
       media: undefined
     });
@@ -797,7 +799,7 @@
   /* scoped */
 
 
-  var __vue_scope_id__ = "data-v-9e63095c";
+  var __vue_scope_id__ = "data-v-58e9dff8";
   /* module identifier */
 
   var __vue_module_identifier__ = undefined;
