@@ -339,6 +339,15 @@ export default {
     slideEnd() {
       const moveX = this.endX - this.startX;
       const moveY = this.endY - this.startY;
+
+      this.endX = this.startX;
+      this.endY = this.startY;
+
+      // Ignore click events
+      if (moveX === 0 && moveY === 0) {
+        return;
+      }
+
       const thresholdX = this.$el.offsetWidth / 5;
       const thresholdY = this.$el.offsetHeight / 5;
       const top = moveY < -thresholdY;
@@ -382,9 +391,6 @@ export default {
       } else {
         done();
       }
-
-      this.endX = this.startX;
-      this.endY = this.startY;
     },
   },
 
@@ -483,9 +489,7 @@ export default {
 
                 if (this.indicatorTrigger === 'hover') {
                   listeners.touchstart = slide;
-                  listeners[
-                    window.PointerEvent ? 'pointerenter' : 'mouseenter'
-                  ] = slide;
+                  listeners[EVENT_POINTER_ENTER] = slide;
                 } else {
                   listeners.click = slide;
                 }
