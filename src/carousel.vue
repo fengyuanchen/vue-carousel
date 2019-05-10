@@ -402,6 +402,7 @@ export default {
         class: {
           carousel: true,
           [`carousel--${this.direction}`]: this.direction,
+          'carousel--slidable': this.slideOnSwipe,
           'carousel--controls': this.controls === 'hover',
           'carousel--indicators': this.indicators === 'hover',
         },
@@ -552,8 +553,11 @@ export default {
 <style lang="scss" scoped>
   .carousel {
     position: relative;
-    touch-action: none;
     user-select: none;
+
+    &--slidable {
+      touch-action: none;
+    }
 
     &--up,
     &--down {
