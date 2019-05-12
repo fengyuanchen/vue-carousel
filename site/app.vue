@@ -114,8 +114,8 @@
 </template>
 
 <script>
-import pkg from '../../package.json';
-import Readme from '../README.md';
+import pkg from '../package.json';
+import Readme from '../src/README.md';
 
 pkg.name = pkg.name.replace(/^.+\//, '');
 

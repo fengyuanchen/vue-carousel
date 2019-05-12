@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-  entry: './src/docs',
+  entry: './site',
   output: {
     path: path.resolve(__dirname, './docs'),
   },
@@ -47,7 +47,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/docs/index.html',
+      template: './site/index.html',
     }),
     new VueLoaderPlugin(),
   ],
