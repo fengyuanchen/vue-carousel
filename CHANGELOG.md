@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2 (May 12, 2019)
+
+- Only set `touch-action: none` when the `slideOnSwipe` is set to `true` on mobile (#4).
+
 ## 1.0.1 (Feb 14, 2019)
 
 - Fix wrong method name (#5).
