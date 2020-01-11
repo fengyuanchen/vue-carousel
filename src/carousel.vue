@@ -1,8 +1,8 @@
 <script>
 import createVueComponent from '@chenfengyuan/create-vue-component';
 
-const IS_BROWSER = typeof window !== 'undefined';
-const IS_TOUCH_DEVICE = IS_BROWSER ? 'ontouchstart' in window.document.documentElement : false;
+export const IS_BROWSER = typeof window !== 'undefined' && typeof window.document !== 'undefined';
+const IS_TOUCH_DEVICE = IS_BROWSER && window.document.documentElement ? 'ontouchstart' in window.document.documentElement : false;
 const HAS_POINTER_EVENT = IS_BROWSER ? 'PointerEvent' in window : false;
 const EVENT_TOUCH_START = IS_TOUCH_DEVICE ? 'touchstart' : 'mousedown';
 const EVENT_TOUCH_MOVE = IS_TOUCH_DEVICE ? 'touchmove' : 'mousemove';

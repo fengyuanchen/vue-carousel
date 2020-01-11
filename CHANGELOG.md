@@ -1,5 +1,9 @@
 # Changelog
 
+## next
+
+- Improve browser detecting for SSR (#20).
+
 ## 1.0.2 (May 12, 2019)
 
 - Only set `touch-action: none` when the `slideOnSwipe` is set to `true` on mobile (#4).
