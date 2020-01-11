@@ -97,7 +97,7 @@ describe('<carousel>', () => {
           data() {
             return {
               data: [
-                createElement => createElement('div', ['content']),
+                (createElement) => createElement('div', ['content']),
               ],
             };
           },
