@@ -1,6 +1,6 @@
 # Changelog
 
-## next
+## 1.0.3 (Jan 11, 2020)
 
 - Improve browser detecting for SSR (#20).
 
