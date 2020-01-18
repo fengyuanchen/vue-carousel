@@ -51,9 +51,9 @@
     "@chenfengyuan/create-vue-component": "^1.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@commitlint/cli": "^8.3.4",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
@@ -68,7 +68,7 @@
     "eslint-plugin-vue": "^6.1.2",
     "feather-icons": "^4.25.0",
     "html-webpack-plugin": "^3.2.0",
-    "husky": "^4.0.6",
+    "husky": "^4.0.10",
     "karma": "^4.4.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.0",
@@ -78,7 +78,6 @@
     "lint-staged": "^9.5.0",
     "markdown-to-vue-loader": "^2.0.0",
     "mocha": "^7.0.0",
-    "node-sass": "^4.13.0",
     "puppeteer": "^2.0.0",
     "rollup": "^1.29.0",
     "rollup-plugin-alias": "^2.2.0",
@@ -86,13 +85,14 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-vue": "^5.1.5",
-    "sass-loader": "^8.0.1",
-    "stylelint": "^12.0.1",
+    "sass": "^1.25.0",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^13.0.0",
     "stylelint-config-recommended-scss": "^4.1.0",
     "stylelint-config-standard": "^19.0.0",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.13.0",
-    "uglify-js": "^3.7.4",
+    "uglify-js": "^3.7.5",
     "vue": "^2.6.11",
     "vue-feather": "^1.0.0",
     "vue-loader": "^15.8.3",
@@ -103,8 +103,8 @@
     "webpack-dev-server": "^3.10.1"
   },
   "peerDependencies": {
-    "vue": "^2.5.0",
-    "vue-template-compiler": "^2.5.0"
+    "vue": "^2.6.0",
+    "vue-template-compiler": "^2.6.0"
   },
   "publishConfig": {
     "access": "public"
