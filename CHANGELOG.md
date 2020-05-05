@@ -1,5 +1,9 @@
 # Changelog
 
+## next
+
+- Add `type` attribute to control buttons for avoiding side-effect (#22).
+
 ## 1.0.3 (Jan 11, 2020)
 
 - Improve browser detecting for SSR (#20).

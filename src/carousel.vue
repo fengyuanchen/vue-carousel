@@ -506,6 +506,7 @@ export default {
 
           {
             attrs: {
+              type: 'button',
               'data-slide': 'prev',
             },
 
@@ -528,6 +529,7 @@ export default {
 
           {
             attrs: {
+              type: 'button',
               'data-slide': 'next',
             },
 
