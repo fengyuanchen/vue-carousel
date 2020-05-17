@@ -1,8 +1,10 @@
 # Changelog
 
-## next
+## 1.0.4 (May 17, 2020)
 
+- Fix the issue of the `pauseOnEnter` and `slideOnSwipe` props. (#18).
 - Add `type` attribute to control buttons for avoiding side-effect (#22).
+- Fix the cached `index` value when the `data` prop is changed (#23).
 
 ## 1.0.3 (Jan 11, 2020)
 
