@@ -326,7 +326,7 @@ export default {
     slideStart(event) {
       const touch = event.touches ? event.touches[0] : null;
 
-      if (this.pauseOnEnter) {
+      if (this.autoplay && this.pauseOnEnter) {
         this.stop();
       }
 
@@ -362,7 +362,7 @@ export default {
       const bottom = moveY > thresholdY;
       const left = moveX < -thresholdX;
       const done = () => {
-        if (this.pauseOnEnter) {
+        if (this.autoplay && this.pauseOnEnter) {
           this.play();
         }
       };
@@ -409,18 +409,18 @@ export default {
         class: {
           carousel: true,
           [`carousel--${this.direction}`]: this.direction,
-          'carousel--slidable': this.slideOnSwipe,
+          'carousel--slidable': this.autoplay && this.slideOnSwipe,
           'carousel--controls': this.controls === 'hover',
           'carousel--indicators': this.indicators === 'hover',
         },
 
         on: {
           ...this.$listeners,
-          ...(this.pauseOnEnter ? {
+          ...(this.autoplay && this.pauseOnEnter ? {
             [EVENT_POINTER_ENTER]: this.pause,
             [EVENT_POINTER_LEAVE]: this.cycle,
           } : {}),
-          ...(this.slideOnSwipe ? {
+          ...(this.autoplay && this.slideOnSwipe ? {
             [EVENT_POINTER_DOWN]: this.slideStart,
             [EVENT_POINTER_MOVE]: this.slideMove,
             [EVENT_POINTER_UP]: this.slideEnd,
