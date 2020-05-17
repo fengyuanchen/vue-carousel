@@ -123,6 +123,13 @@ export default {
       const list = [];
 
       if (data && data.length > 0) {
+        const maxIndex = data.length - 1;
+
+        // In case the number of the data list is reduced (#23).
+        if (this.index > maxIndex) {
+          this.index = maxIndex;
+        }
+
         data.forEach((rawItem, index) => {
           const active = index === this.index;
           const item = {
