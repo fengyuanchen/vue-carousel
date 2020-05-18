@@ -353,8 +353,8 @@
 | indicator-type | `String` | `'line'` | line, disc | The style type of the indicator. |
 | indicators | `Boolean` \| `String` | `true` | false, true, hover | Whether to show or how to show the indicators. |
 | interval | `Number` | `5000` | - | The amount of time to delay between automatically cycling an item. |
-| pauseOnEnter | `Boolean` | `true` | - | Indicates if pause the slides automatically when pointer entering. Requires the `autoplay` prop set to `true`. |
-| slideOnSwipe | `Boolean` | `true` | - | Indicates if slide the slides automatically after swiped. Requires the `autoplay` prop set to `true`. |
+| pauseOnEnter | `Boolean` | `true` | - | Indicates if pause the slides automatically when pointer entering. |
+| slideOnSwipe | `Boolean` | `true` | - | Indicates if slide to the previous or next one after swiped. |
 | tag | `String` | `'div'` | - | The element tag of the carousel container. |
 
 The array structure of `data`:

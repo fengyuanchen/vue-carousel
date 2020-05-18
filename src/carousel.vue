@@ -165,12 +165,14 @@ export default {
     },
 
     cycle() {
-      this.pause();
-      this.timeout = setTimeout(() => {
-        this.next(() => {
-          this.cycle();
-        });
-      }, this.interval);
+      if (this.playing) {
+        this.pause();
+        this.timeout = setTimeout(() => {
+          this.next(() => {
+            this.cycle();
+          });
+        }, this.interval);
+      }
     },
 
     pause() {
@@ -326,7 +328,7 @@ export default {
     slideStart(event) {
       const touch = event.touches ? event.touches[0] : null;
 
-      if (this.autoplay && this.pauseOnEnter) {
+      if (this.playing && this.pauseOnEnter) {
         this.stop();
       }
 
@@ -362,7 +364,7 @@ export default {
       const bottom = moveY > thresholdY;
       const left = moveX < -thresholdX;
       const done = () => {
-        if (this.autoplay && this.pauseOnEnter) {
+        if (this.playing && this.pauseOnEnter) {
           this.play();
         }
       };
@@ -409,18 +411,18 @@ export default {
         class: {
           carousel: true,
           [`carousel--${this.direction}`]: this.direction,
-          'carousel--slidable': this.autoplay && this.slideOnSwipe,
+          'carousel--slidable': this.slideOnSwipe,
           'carousel--controls': this.controls === 'hover',
           'carousel--indicators': this.indicators === 'hover',
         },
 
         on: {
           ...this.$listeners,
-          ...(this.autoplay && this.pauseOnEnter ? {
+          ...(this.pauseOnEnter ? {
             [EVENT_POINTER_ENTER]: this.pause,
             [EVENT_POINTER_LEAVE]: this.cycle,
           } : {}),
-          ...(this.autoplay && this.slideOnSwipe ? {
+          ...(this.slideOnSwipe ? {
             [EVENT_POINTER_DOWN]: this.slideStart,
             [EVENT_POINTER_MOVE]: this.slideMove,
             [EVENT_POINTER_UP]: this.slideEnd,

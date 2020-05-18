@@ -1,5 +1,9 @@
 # Changelog
 
+## next
+
+- Improve the `pauseOnEnter` and `slideOnSwipe` props. (#24).
+
 ## 1.0.4 (May 17, 2020)
 
 - Fix the issue of the `pauseOnEnter` and `slideOnSwipe` props. (#18).
