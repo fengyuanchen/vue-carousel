@@ -1,6 +1,6 @@
 # Changelog
 
-## next
+## 1.0.5 (May 18, 2020)
 
 - Improve the `pauseOnEnter` and `slideOnSwipe` props. (#24).
 
