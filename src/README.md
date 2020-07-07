@@ -45,7 +45,13 @@
 </template>
 
 <script>
+  // npm install feather-icons vue-feather
+  import VueFeather from 'vue-feather';
+
   export default {
+    components: {
+      Feather: VueFeather,
+    },
     data() {
       return {
         data: [
