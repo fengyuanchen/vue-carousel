@@ -357,7 +357,7 @@ export default {
       const bottom = moveY > thresholdY;
       const left = moveX < -thresholdX;
       const done = () => {
-        if (this.playing && this.pauseOnEnter) {
+        if (!this.playing && this.pauseOnEnter) {
           this.play();
         }
       };
