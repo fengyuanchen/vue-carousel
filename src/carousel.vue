@@ -315,14 +315,7 @@ export default {
         return;
       }
 
-      const { direction } = this;
-      let reverse = index < this.index;
-
-      if (direction === 'right' || direction === 'down') {
-        reverse = !reverse;
-      }
-
-      this.slide(index, reverse, done);
+      this.slide(index, index < this.index, done);
     },
 
     slideStart(event) {
