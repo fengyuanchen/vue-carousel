@@ -354,7 +354,7 @@
 | autoplay | `Boolean` | `true` | - | Indicates if play the slides automatically once mounted. |
 | controls | `Boolean` \| `String` | `'hover'` | false, true, hover | Whether to show or how to show the prev and next controls. |
 | data | `Array` | - | - | The slides data of the carousel. |
-| direction | `String` | `'left'` | left, right, top, bottom | The direction of the carousel. |
+| direction | `String` | `'left'` | left, right, up, down | The sliding direction of the carousel. |
 | indicator-trigger | `String` | `'click'` | click, hover | The trigger to activate the indicator. |
 | indicator-type | `String` | `'line'` | line, disc | The style type of the indicator. |
 | indicators | `Boolean` \| `String` | `true` | false, true, hover | Whether to show or how to show the indicators. |

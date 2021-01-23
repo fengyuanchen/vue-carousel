@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.6 (Jan 23, 2021)
+
+- Fix the issue of the right and down directions are not work as expected.
+- Fix the issue of the carousel does not play again after the mouse left.
+
 ## 1.0.5 (May 18, 2020)
 
 - Improve the `pauseOnEnter` and `slideOnSwipe` props. (#24).
