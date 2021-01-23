@@ -1,5 +1,10 @@
 <script lang="ts">
-import { Component, defineComponent, h } from 'vue';
+import {
+  Component,
+  defineComponent,
+  h,
+  nextTick,
+} from 'vue';
 
 const IS_BROWSER = typeof window !== 'undefined' && typeof window.document !== 'undefined';
 const IS_TOUCH_DEVICE = IS_BROWSER && window.document.documentElement ? 'ontouchstart' in window.document.documentElement : false;
@@ -98,6 +103,8 @@ export default defineComponent({
       default: 'div',
     },
   },
+
+  emits: ['slide', 'slid'],
 
   data() {
     return {
@@ -228,8 +235,6 @@ export default defineComponent({
         return;
       }
 
-      this.sliding = true;
-
       const { list } = this;
       const minIndex = 0;
       const maxIndex = list.length - 1;
@@ -244,6 +249,9 @@ export default defineComponent({
         done();
         return;
       }
+
+      this.sliding = true;
+      this.$emit('slide', index, this.index);
 
       const active = list[this.index];
       const next = list[index];
@@ -271,7 +279,7 @@ export default defineComponent({
       }
 
       // Waiting for the class change applied
-      this.$nextTick(() => {
+      nextTick(() => {
         // Force reflow to enable CSS3 transition
         // eslint-disable-next-line
         this.$el.offsetWidth;
@@ -330,6 +338,7 @@ export default defineComponent({
           next.toBottom = false;
           next.toLeft = false;
 
+          this.$emit('slid', index, this.index);
           this.index = index;
           this.sliding = false;
           done();

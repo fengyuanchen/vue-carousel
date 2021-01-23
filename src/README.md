@@ -324,3 +324,10 @@ export default {
 | prev | `()` | Switch to the previous slide. |
 | next | `()` | Switch to the next slide. |
 | slideTo | `(index)` | Switch to the slide of the given index. |
+
+## Events
+
+| Name | Parameters | Description |
+| --- | --- | --- |
+| slide | `(newIndex, oldIndex)` | Fires immediately when the slide transition starts. |
+| slid | `(newIndex, oldIndex)` | Fired when slide transition has completed. |
