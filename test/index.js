@@ -136,12 +136,12 @@ describe('<carousel>', () => {
         expect(vm.$el.classList.contains('carousel--left')).to.be.true;
       });
 
-      it('should be "top"', () => {
+      it('should be "up"', () => {
         const vm = new Vue({
-          template: '<carousel :data="[1, 2, 3]" direction="top"></carousel>',
+          template: '<carousel :data="[1, 2, 3]" direction="up"></carousel>',
         }).$mount();
 
-        expect(vm.$el.classList.contains('carousel--top')).to.be.true;
+        expect(vm.$el.classList.contains('carousel--up')).to.be.true;
       });
     });
 
