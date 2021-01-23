@@ -1,44 +1,93 @@
-# Changelog
+# [2.0.0-alpha](https://github.com/fengyuanchen/vue-carousel/compare/v1.0.6...v2.0.0-alpha) (2021-01-23)
 
-## 1.0.6 (Jan 23, 2021)
 
-- Fix the issue of the right and down directions are not work as expected.
-- Fix the issue of the carousel does not play again after the mouse left.
+* refactor!: upgrade to Vue 3 ([41efda2](https://github.com/fengyuanchen/vue-carousel/commit/41efda22aa22cc8d53fa83f0c1719d5671999999))
 
-## 1.0.5 (May 18, 2020)
 
-- Improve the `pauseOnEnter` and `slideOnSwipe` props. (#24).
+### BREAKING CHANGES
 
-## 1.0.4 (May 17, 2020)
+* drop support for Vue 2.
 
-- Fix the issue of the `pauseOnEnter` and `slideOnSwipe` props. (#18).
-- Add `type` attribute to control buttons for avoiding side-effect (#22).
-- Fix the cached `index` value when the `data` prop is changed (#23).
 
-## 1.0.3 (Jan 11, 2020)
 
-- Improve browser detecting for SSR (#20).
+## [1.0.6](https://github.com/fengyuanchen/vue-carousel/compare/v1.0.5...v1.0.6) (2021-01-23)
 
-## 1.0.2 (May 12, 2019)
 
-- Only set `touch-action: none` when the `slideOnSwipe` is set to `true` on mobile (#4).
+### Bug Fixes
 
-## 1.0.1 (Feb 14, 2019)
+* fix the right and down directions sliding ([11b42fd](https://github.com/fengyuanchen/vue-carousel/commit/11b42fd92d0bea87aae172207131ed497bb8186c))
+* fix the wrong playing status checking ([5683e1c](https://github.com/fengyuanchen/vue-carousel/commit/5683e1c0305b3b9dd60ae87f8b21ccc052fd6f74))
 
-- Fix wrong method name (#5).
 
-## 1.0.0 (Jan 26, 2019)
 
-- Add 2 new props: `pauseOnEnter` and `slideOnSwipe`.
-- Support to use as a Vue plugin: `Vue.use(VueCarousel)`.
-- Support to use as a Vue component: `Vue.component(VueCarousel.name, VueCarousel)`.
-- Register the component automatically once loaded in the browser.
+## [1.0.5](https://github.com/fengyuanchen/vue-carousel/compare/v1.0.4...v1.0.5) (2020-05-18)
 
-## 0.1.1 (Aug 5, 2018)
 
-- Force production mode to reduce the size of the bundled files.
+### Bug Fixes
 
-## 0.1.0 (Jun 28, 2018)
+* improve the `pauseOnEnter` and `slideOnSwipe` props ([a51bce5](https://github.com/fengyuanchen/vue-carousel/commit/a51bce5a45847e3a1b8a6c96137d1a2672e5641d)), closes [#24](https://github.com/fengyuanchen/vue-carousel/issues/24)
 
-- Support 9 props: `autoplay`, `controls`, `data`, `direction`, `indicators`, `indicatorTrigger`, `indicatorType`, `interval` and `tag`.
-- Support 5 methods: `play`, `stop`, `prev`, `next` and `slideTo`.
+
+
+## [1.0.4](https://github.com/fengyuanchen/vue-carousel/compare/v1.0.3...v1.0.4) (2020-05-17)
+
+
+### Bug Fixes
+
+* `pauseOnEnter` and `slideOnSwipe` must base on `autoplay` ([adfcabe](https://github.com/fengyuanchen/vue-carousel/commit/adfcabebb7aa521d4fa92aa4fb0f1dbe55b10cd4)), closes [#18](https://github.com/fengyuanchen/vue-carousel/issues/18)
+* add `type` attribute to control buttons ([8c8b62a](https://github.com/fengyuanchen/vue-carousel/commit/8c8b62a920a7ae7f13e59b83f976660181ddb883)), closes [#22](https://github.com/fengyuanchen/vue-carousel/issues/22)
+* correct the cache index when data changed ([469ea19](https://github.com/fengyuanchen/vue-carousel/commit/469ea19e22b915264b3a05eef813b16cde5d844e)), closes [#23](https://github.com/fengyuanchen/vue-carousel/issues/23)
+
+
+
+## [1.0.3](https://github.com/fengyuanchen/vue-carousel/compare/v1.0.2...v1.0.3) (2020-01-11)
+
+
+### Bug Fixes
+
+* improve browser detecting for SSR ([801df0a](https://github.com/fengyuanchen/vue-carousel/commit/801df0a4d0ff84a6d7c9df20550fc10a5adfa2f8)), closes [#20](https://github.com/fengyuanchen/vue-carousel/issues/20)
+
+
+
+## [1.0.2](https://github.com/fengyuanchen/vue-carousel/compare/v1.0.1...v1.0.2) (2019-05-12)
+
+
+### Bug Fixes
+
+* only disable touch action when it is slidable ([d0b9210](https://github.com/fengyuanchen/vue-carousel/commit/d0b9210662469d66af351db924a41d722f4c70fa)), closes [#4](https://github.com/fengyuanchen/vue-carousel/issues/4)
+
+
+
+## [1.0.1](https://github.com/fengyuanchen/vue-carousel/compare/v1.0.0...v1.0.1) (2019-02-14)
+
+
+### Bug Fixes
+
+* correct method name ([a98e256](https://github.com/fengyuanchen/vue-carousel/commit/a98e25620a8f980321e921cc9c6d45d3677b381f)), closes [#5](https://github.com/fengyuanchen/vue-carousel/issues/5)
+
+
+### Performance Improvements
+
+* ignore click events ([53768ca](https://github.com/fengyuanchen/vue-carousel/commit/53768ca39ef40a07de964fc517a4b69400cde6d6))
+
+
+
+# [1.0.0](https://github.com/fengyuanchen/vue-carousel/compare/v0.1.1...v1.0.0) (2019-01-26)
+
+
+### Features
+
+* add `pauseOnEnter` and `slideOnSwipe` properties ([3ea827a](https://github.com/fengyuanchen/vue-carousel/commit/3ea827aada85fd1af411b2f8c11154b8a4db0636)), closes [#4](https://github.com/fengyuanchen/vue-carousel/issues/4)
+* install automatically when in the browser ([b429b9c](https://github.com/fengyuanchen/vue-carousel/commit/b429b9c7d0799b72427f55a1b99bce79b3b061be))
+* register as a plugin ([004a0ba](https://github.com/fengyuanchen/vue-carousel/commit/004a0ba287cfd9dd60d69e42900fcf658858b699))
+
+
+
+## [0.1.1](https://github.com/fengyuanchen/vue-carousel/compare/v0.1.0...v0.1.1) (2018-08-05)
+
+
+
+# 0.1.0 (2018-06-28)
+
+
+

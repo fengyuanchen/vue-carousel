@@ -27,27 +27,21 @@
           <nav class="nav navbar-nav">
             <a
               class="nav-link"
-              href="//github.com/fengyuanchen/vue-carousel"
+              href="https://github.com/fengyuanchen/vue-carousel"
               title="View the GitHub project"
             >
               GitHub
             </a>
             <a
               class="nav-link"
-              href="//github.com/fengyuanchen/vue-carousel/blob/master/LICENSE"
-            >
-              License
-            </a>
-            <a
-              class="nav-link"
-              href="//fengyuanchen.github.io"
+              href="https://fengyuanchen.github.io/"
               title="Explore more projects"
             >
               Explore
             </a>
             <a
               class="nav-link"
-              :href="author.url"
+              href="https://chenfengyuan.com/"
               title="About the author"
             >
               About
@@ -57,7 +51,7 @@
       </nav>
     </header>
     <main>
-      <div class="jumbotron bg-primary text-white rounded-0">
+      <div class="bg-primary text-white py-5">
         <div class="container">
           <div class="row">
             <div class="col-md">
@@ -91,19 +85,25 @@
         <nav class="nav flex-wrap justify-content-center mb-3">
           <a
             class="nav-link"
-            href="//github.com/fengyuanchen/vue-carousel"
+            href="https://github.com/fengyuanchen/vue-carousel"
           >
             GitHub
           </a>
           <a
             class="nav-link"
-            href="//github.com/fengyuanchen/vue-carousel/blob/master/LICENSE"
+            href="https://github.com/fengyuanchen/vue-carousel/blob/main/CHANGELOG.md"
+          >
+            Changelog
+          </a>
+          <a
+            class="nav-link"
+            href="https://github.com/fengyuanchen/vue-carousel/blob/main/LICENSE"
           >
             License
           </a>
           <a
             class="nav-link"
-            :href="author.url"
+            href="https://chenfengyuan.com/"
           >
             About
           </a>
@@ -113,13 +113,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import pkg from '../package.json';
 import Readme from '../src/README.md';
 
 pkg.name = pkg.name.replace(/^.+\//, '');
 
-export default {
+export default defineComponent({
   components: {
     Readme,
   },
@@ -134,99 +135,119 @@ export default {
     script.async = true;
     script.id = '_carbonads_js';
     script.src = '//cdn.carbonads.com/carbon.js?serve=CKYI55Q7&placement=fengyuanchengithubio';
-    this.$refs.carbonads.appendChild(script);
+    (this.$refs.carbonads as Element).appendChild(script);
   },
-};
+});
 </script>
 
 <style lang="scss">
-  .markdown-body {
-    table {
-      display: table;
-    }
-
-    code {
-      white-space: nowrap;
-    }
+.markdown-body {
+  table {
+    display: table;
   }
 
-  .carbonads {
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-    overflow: hidden;
-    padding: 1rem;
-
-    @media (min-width: 768px) {
-      float: right;
-      margin-bottom: -1rem;
-      margin-top: -1rem;
-      max-width: 360px;
-    }
+  code {
+    white-space: nowrap;
   }
 
-  .carbon {
-    &-wrap {
-      overflow: hidden;
+  .vue-carousel {
+    ol,
+    ul {
+      margin-bottom: 0;
+      padding-left: 0;
     }
 
-    &-img {
-      clear: left;
-      display: block;
-      float: left;
-    }
-
-    &-text,
-    &-poweredby {
-      display: block;
-      margin-left: 140px;
-
-      &,
-      &:focus,
-      &:hover {
-        color: #fff;
-        text-decoration: none;
+    &__list {
+      > li + li {
+        margin-top: 0;
       }
     }
 
-    &-poweredby {
-      color: #ddd;
+    &__indicators {
+      > li + li {
+        margin-top: 0.125rem;
+      }
     }
   }
+}
 
-  .heart {
-    color: #ddd;
+.carbonads {
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  overflow: hidden;
+  padding: 1rem;
+
+  @media (min-width: 768px) {
+    float: right;
+    margin-bottom: -1rem;
+    margin-top: -1rem;
+    max-width: 360px;
+  }
+}
+
+.carbon {
+  &-wrap {
+    overflow: hidden;
+  }
+
+  &-img {
+    clear: left;
     display: block;
-    height: 2rem;
-    line-height: 2rem;
-    margin-bottom: 0;
-    margin-top: 1rem;
-    position: relative;
-    text-align: center;
-    width: 100%;
+    float: left;
+  }
 
+  &-text,
+  &-poweredby {
+    display: block;
+    margin-left: 140px;
+
+    &,
+    &:focus,
     &:hover {
-      color: #ff4136;
-    }
-
-    &::before {
-      border-top: 1px solid #eee;
-      content: '';
-      display: block;
-      height: 0;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 50%;
-    }
-
-    &::after {
-      background-color: #fff;
-      content: '♥';
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      position: relative;
-      z-index: 1;
+      color: #fff;
+      text-decoration: none;
     }
   }
+
+  &-poweredby {
+    color: #ddd;
+  }
+}
+
+.heart {
+  color: #ddd;
+  display: block;
+  height: 2rem;
+  line-height: 2rem;
+  margin-bottom: 0;
+  margin-top: 1rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  &:hover {
+    color: #ff4136;
+  }
+
+  &::before {
+    border-top: 1px solid #eee;
+    content: '';
+    display: block;
+    height: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+  }
+
+  &::after {
+    background-color: #fff;
+    content: '♥';
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+}
 </style>

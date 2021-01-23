@@ -1,71 +1,55 @@
-import alias from 'rollup-plugin-alias';
-import babel from 'rollup-plugin-babel';
-import changeCase from 'change-case';
-import commonjs from 'rollup-plugin-commonjs';
 import createBanner from 'create-banner';
-import nodeResolve from 'rollup-plugin-node-resolve';
+import postcss from 'rollup-plugin-postcss';
+import typescript from 'rollup-plugin-typescript2';
 import vue from 'rollup-plugin-vue';
+import { pascalCase } from 'change-case';
+import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
-pkg.name = pkg.name.replace(/^.+\//, '');
-
-const name = changeCase.pascalCase(pkg.name);
-const data = {
-  year: '2018-present',
-};
+const name = pascalCase(pkg.name.replace(/^.+\//, ''));
 const banner = createBanner({
-  data,
+  data: {
+    year: '2018-present',
+  },
+  template: 'inline',
 });
-const globals = {
-  vue: 'Vue',
-};
 
-export default {
-  input: 'src/index.js',
-  output: [
-    {
+export default ['umd', 'esm'].map((format) => ({
+  input: 'src/index.ts',
+  output: ['development', 'production'].map((mode) => {
+    const output = {
       banner,
-      globals,
+      format,
       name,
-      file: `dist/${pkg.name}.js`,
-      format: 'umd',
-    },
-    {
-      globals,
-      name,
-      banner: createBanner({
-        data,
-        template: 'inline',
-      }),
-      file: `dist/${pkg.name}.min.js`,
-      format: 'umd',
-      compact: true,
-    },
-    {
-      banner,
-      file: `dist/${pkg.name}.common.js`,
-      format: 'cjs',
-    },
-    {
-      banner,
-      file: `dist/${pkg.name}.esm.js`,
-      format: 'esm',
-    },
-  ],
-  external: ['vue'],
-  plugins: [
-    alias({
-      '@chenfengyuan/create-vue-component': 'node_modules/@chenfengyuan/create-vue-component/src/index.js',
-    }),
-    nodeResolve(),
-    commonjs(),
-    vue({
-      template: {
-        isProduction: true,
+      file: pkg.main,
+      globals: {
+        vue: 'Vue',
       },
+    };
+
+    if (format === 'esm') {
+      output.file = pkg.module;
+    }
+
+    if (mode === 'production') {
+      output.compact = true;
+      output.file = output.file.replace(/(\.js)$/, '.min$1');
+      output.plugins = [
+        terser(),
+      ];
+    }
+
+    return output;
+  }),
+  external: Object.keys(pkg.peerDependencies),
+  plugins: [
+    typescript(),
+    vue({
+      preprocessStyles: true,
     }),
-    babel({
-      extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue'],
+    postcss({
+      extensions: ['.css', '.scss'],
+      minimize: true,
     }),
   ],
-};
+}));
