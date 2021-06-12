@@ -1,6 +1,6 @@
 # vue-carousel
 
-[![Build Status](https://img.shields.io/github/workflow/status/fengyuanchen/vue-carousel/ci/main.svg)](https://github.com/fengyuanchen/vue-carousel/actions) [![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-carousel.svg)](https://codecov.io/gh/fengyuanchen/vue-carousel) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-carousel.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-carousel) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-carousel.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-carousel) [![Gzip Size](https://img.shields.io/bundlephobia/minzip/@chenfengyuan/vue-carousel.svg)](https://unpkg.com/@chenfengyuan/vue-carousel/dist/vue-carousel.js)
+[![Build Status](https://img.shields.io/github/workflow/status/fengyuanchen/vue-carousel/ci/main.svg)](https://github.com/fengyuanchen/vue-carousel/actions) [![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-carousel.svg)](https://codecov.io/gh/fengyuanchen/vue-carousel) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-carousel.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-carousel) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-carousel/next.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-carousel) [![Gzip Size](https://img.shields.io/bundlephobia/minzip/@chenfengyuan/vue-carousel.svg)](https://unpkg.com/@chenfengyuan/vue-carousel/dist/vue-carousel.js)
 
 > Carousel component for Vue 3.
 
@@ -22,7 +22,7 @@ dist/
 ### Installation
 
 ```shell
-npm install vue @vue/compiler-sfc @chenfengyuan/vue-carousel
+npm install vue@next @vue/compiler-sfc @chenfengyuan/vue-carousel@next
 ```
 
 In browser:
@@ -35,10 +35,10 @@ In browser:
 ### Usage
 
 ```js
-import Vue from 'vue';
+import { createApp } from 'vue';
 import VueCarousel from '@chenfengyuan/vue-carousel';
 
-const app = Vue.createApp({});
+const app = createApp({});
 
 app.component(VueCarousel.name, VueCarousel);
 ```

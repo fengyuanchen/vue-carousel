@@ -1,7 +1,16 @@
+# [2.0.0-beta](https://github.com/fengyuanchen/vue-carousel/compare/v2.0.0-alpha...v2.0.0-beta) (2021-06-12)
+
+
+### Features
+
+* add `slide` and `slid` events ([57a7a70](https://github.com/fengyuanchen/vue-carousel/commit/57a7a7021816f187a6f5a1d6e5d796540572ea01)), closes [#6](https://github.com/fengyuanchen/vue-carousel/issues/6)
+
+
+
 # [2.0.0-alpha](https://github.com/fengyuanchen/vue-carousel/compare/v1.0.6...v2.0.0-alpha) (2021-01-23)
 
 
-* refactor!: upgrade to Vue 3 ([41efda2](https://github.com/fengyuanchen/vue-carousel/commit/41efda22aa22cc8d53fa83f0c1719d5671999999))
+* refactor!: upgrade to Vue 3 ([6e12a6d](https://github.com/fengyuanchen/vue-carousel/commit/6e12a6de12eb6cfea8b8078c43fac512319dc2e0))
 
 
 ### BREAKING CHANGES
