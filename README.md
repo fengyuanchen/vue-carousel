@@ -21,8 +21,14 @@ dist/
 
 ### Installation
 
+Using npm:
 ```shell
 npm install vue@next @vue/compiler-sfc @chenfengyuan/vue-carousel@next
+```
+
+Using yarn:
+```shell
+yarn add vue@next @vue/compiler-sfc @chenfengyuan/vue-carousel@next
 ```
 
 In browser:
