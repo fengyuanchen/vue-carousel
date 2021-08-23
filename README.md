@@ -26,7 +26,7 @@ Using npm:
 npm install vue@next @vue/compiler-sfc @chenfengyuan/vue-carousel@next
 ```
 
-Using yarn:
+Using Yarn:
 ```shell
 yarn add vue@next @vue/compiler-sfc @chenfengyuan/vue-carousel@next
 ```
