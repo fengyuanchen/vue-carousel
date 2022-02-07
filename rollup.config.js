@@ -15,7 +15,7 @@ const banner = createBanner({
 });
 
 export default ['umd', 'esm'].map((format) => ({
-  input: 'src/index.ts',
+  input: 'src/vue-carousel.vue',
   output: ['development', 'production'].map((mode) => {
     const output = {
       banner,
@@ -43,7 +43,18 @@ export default ['umd', 'esm'].map((format) => ({
   }),
   external: Object.keys(pkg.peerDependencies),
   plugins: [
-    typescript(),
+    typescript({
+      tsconfigOverride: {
+        compilerOptions: {
+          declaration: format === 'esm',
+        },
+        exclude: [
+          'src/index.ts',
+          'docs',
+          'tests',
+        ],
+      },
+    }),
     vue({
       preprocessStyles: true,
     }),
