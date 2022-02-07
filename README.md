@@ -1,13 +1,11 @@
 # vue-carousel
 
-[![Build Status](https://img.shields.io/travis/fengyuanchen/vue-carousel.svg)](https://travis-ci.org/fengyuanchen/vue-carousel) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-carousel.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-carousel) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-carousel.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-carousel)
-
-> Carousel component for [Vue.js](https://vuejs.org/).
+> Carousel component for [Vue 2](https://v2.vuejs.org/).
 
 - [Docs](src/README.md)
 - [Demo](https://fengyuanchen.github.io/vue-carousel)
 
-## Main
+## Main files
 
 ```text
 dist/
@@ -22,7 +20,7 @@ dist/
 ### Installation
 
 ```shell
-npm install vue vue-template-compiler @chenfengyuan/vue-carousel
+npm install vue@2 vue-template-compiler@2 @chenfengyuan/vue-carousel@1
 ```
 
 In browser:
