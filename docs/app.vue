@@ -154,7 +154,6 @@ export default defineComponent({
   .vue-carousel {
     ol,
     ul {
-      list-style: none !important;
       margin-bottom: 0;
       padding-left: 0;
     }
