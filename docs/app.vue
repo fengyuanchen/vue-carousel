@@ -144,6 +144,7 @@ export default defineComponent({
 .markdown-body {
   table {
     display: table;
+    min-width: 100%;
   }
 
   code {
@@ -153,6 +154,7 @@ export default defineComponent({
   .vue-carousel {
     ol,
     ul {
+      list-style: none !important;
       margin-bottom: 0;
       padding-left: 0;
     }
